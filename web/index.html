@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f4efe4" />
+    <meta name="description" content="日文文法、單字與歌詞學習筆記，支援手機與離線閱讀。" />
+    <title>日本語知識庫</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <button class="icon-button menu-button" id="menuButton" aria-label="開啟目錄">目錄</button>
+        <a class="brand" href="#">
+          <span class="brand-mark">日</span>
+          <span><strong>日本語知識庫</strong><small>學習筆記</small></span>
+        </a>
+        <button class="icon-button" id="themeButton" aria-label="切換深色模式">夜</button>
+      </header>
+
+      <aside class="sidebar" id="sidebar" aria-label="筆記目錄">
+        <label class="search-wrap">
+          <span class="sr-only">搜尋筆記</span>
+          <input id="searchInput" type="search" placeholder="搜尋單字、文法、歌詞…" autocomplete="off" />
+          <kbd>⌘ K</kbd>
+        </label>
+        <nav id="noteNavigation"></nav>
+        <p class="offline-note"><span></span> 可離線閱讀</p>
+      </aside>
+
+      <main class="reader">
+        <article id="article" tabindex="-1"></article>
+        <footer>日本語知識庫 · 自分のペースで、少しずつ。</footer>
+      </main>
+    </div>
+    <button class="backdrop" id="backdrop" aria-label="關閉目錄"></button>
+    <script src="content.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

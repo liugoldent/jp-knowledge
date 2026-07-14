@@ -1,0 +1,112 @@
+:root {
+  color-scheme: light;
+  --paper: #f4efe4;
+  --surface: #fffdf8;
+  --ink: #27231f;
+  --muted: #746d63;
+  --line: #ded5c5;
+  --accent: #b13d2f;
+  --accent-soft: #f2ddd6;
+  --sidebar: #ebe3d5;
+  --quote: #e2eadf;
+  --shadow: 0 18px 50px rgba(63, 47, 31, 0.09);
+  font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans TC", system-ui, sans-serif;
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #191714;
+  --surface: #221f1b;
+  --ink: #eee8de;
+  --muted: #aaa196;
+  --line: #3e3932;
+  --accent: #e37b69;
+  --accent-soft: #452a25;
+  --sidebar: #1d1a17;
+  --quote: #263129;
+  --shadow: none;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; background: var(--paper); }
+body { margin: 0; color: var(--ink); background: var(--paper); }
+button, input { font: inherit; }
+a { color: var(--accent); text-underline-offset: 3px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); }
+
+.topbar {
+  position: fixed; inset: 0 0 auto 0; z-index: 20; height: 70px;
+  display: flex; align-items: center; gap: 16px; padding: 0 24px;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  border-bottom: 1px solid var(--line); backdrop-filter: blur(16px);
+}
+.brand { display: flex; align-items: center; gap: 11px; color: var(--ink); text-decoration: none; }
+.brand-mark { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; color: #fff; background: var(--accent); font-family: "Yu Mincho", serif; font-size: 21px; }
+.brand strong, .brand small { display: block; }
+.brand strong { font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; letter-spacing: .04em; }
+.brand small { color: var(--muted); font-size: 11px; margin-top: 1px; }
+.icon-button { min-width: 42px; min-height: 42px; margin-left: auto; border: 1px solid var(--line); border-radius: 999px; color: var(--ink); background: var(--surface); cursor: pointer; }
+.menu-button { display: none; margin-left: 0; min-width: 62px; font-size: 14px; }
+
+.sidebar {
+  position: fixed; z-index: 15; top: 70px; bottom: 0; left: 0; width: 310px;
+  padding: 24px 18px calc(24px + env(safe-area-inset-bottom)); overflow-y: auto;
+  background: var(--sidebar); border-right: 1px solid var(--line);
+}
+.search-wrap { position: relative; display: block; margin-bottom: 25px; }
+.search-wrap input { width: 100%; padding: 12px 50px 12px 14px; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; outline: none; }
+.search-wrap input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.search-wrap kbd { position: absolute; right: 10px; top: 10px; padding: 2px 5px; color: var(--muted); background: var(--paper); border: 1px solid var(--line); border-radius: 5px; font-size: 11px; }
+.nav-section { margin: 0 0 22px; }
+.nav-section h2 { margin: 0 8px 7px; color: var(--muted); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
+.nav-link { display: block; padding: 9px 10px; border-radius: 9px; color: var(--ink); text-decoration: none; font-size: 14px; line-height: 1.4; }
+.nav-link:hover, .nav-link.active { color: var(--accent); background: var(--surface); }
+.search-empty { padding: 20px 10px; color: var(--muted); font-size: 14px; }
+.offline-note { display: flex; align-items: center; gap: 8px; margin: 28px 9px 0; color: var(--muted); font-size: 12px; }
+.offline-note span { width: 7px; height: 7px; border-radius: 50%; background: #5e9861; box-shadow: 0 0 0 3px color-mix(in srgb, #5e9861 20%, transparent); }
+
+.reader { margin-left: 310px; padding: 118px 7vw 60px; }
+article { max-width: 820px; min-height: calc(100vh - 230px); margin: 0 auto; padding: clamp(28px, 6vw, 68px); background: var(--surface); border: 1px solid var(--line); border-radius: 4px 28px 4px 4px; box-shadow: var(--shadow); outline: none; }
+article h1, article h2, article h3 { font-family: "Yu Mincho", "Hiragino Mincho ProN", serif; line-height: 1.45; scroll-margin-top: 90px; }
+article h1 { margin: 0 0 34px; padding-bottom: 20px; border-bottom: 2px solid var(--accent); font-size: clamp(27px, 5vw, 42px); }
+article h2 { margin: 2.2em 0 .8em; font-size: clamp(21px, 3vw, 27px); }
+article h3 { margin: 1.8em 0 .6em; font-size: 19px; }
+article p, article li { font-size: 16px; line-height: 1.95; }
+article ul, article ol { padding-left: 1.5em; }
+article li + li { margin-top: .4em; }
+article blockquote { margin: 1.5em 0; padding: 17px 20px; border-left: 4px solid #6e9472; background: var(--quote); border-radius: 0 10px 10px 0; }
+article blockquote p { margin: .35em 0; }
+article code { padding: .12em .35em; border-radius: 4px; background: var(--paper); font-size: .9em; }
+.table-wrap { overflow-x: auto; margin: 1.4em 0; border: 1px solid var(--line); border-radius: 10px; }
+table { width: 100%; border-collapse: collapse; min-width: 560px; }
+th, td { padding: 12px 14px; border-bottom: 1px solid var(--line); text-align: left; line-height: 1.7; vertical-align: top; }
+th { color: var(--accent); background: var(--paper); font-size: 14px; }
+tr:last-child td { border-bottom: 0; }
+.note-meta { display: flex; gap: 8px; margin: -20px 0 30px; color: var(--muted); font-size: 12px; }
+.note-meta span { padding: 4px 8px; border: 1px solid var(--line); border-radius: 999px; }
+mark { padding: 0 2px; color: inherit; background: #f0ca62; }
+footer { max-width: 820px; margin: 30px auto 0; color: var(--muted); text-align: center; font-size: 12px; }
+.backdrop { display: none; }
+
+@media (max-width: 800px) {
+  .topbar { height: 62px; padding: 0 14px; }
+  .brand small { display: none; }
+  .brand strong { font-size: 15px; }
+  .brand-mark { width: 34px; height: 34px; }
+  .menu-button { display: block; }
+  .sidebar { top: 62px; width: min(88vw, 330px); transform: translateX(-105%); transition: transform .22s ease; box-shadow: 16px 0 40px rgba(0,0,0,.18); }
+  body.menu-open .sidebar { transform: translateX(0); }
+  .backdrop { position: fixed; z-index: 10; inset: 62px 0 0; width: 100%; border: 0; background: rgba(0,0,0,.35); }
+  body.menu-open .backdrop { display: block; }
+  .reader { margin-left: 0; padding: 82px 12px 40px; }
+  article { padding: 26px 20px 40px; border-radius: 3px 20px 3px 3px; }
+  article h1 { margin-bottom: 28px; }
+  article p, article li { font-size: 16px; line-height: 1.9; }
+  .search-wrap kbd { display: none; }
+}
+
+@media print {
+  .topbar, .sidebar, footer { display: none; }
+  .reader { margin: 0; padding: 0; }
+  article { max-width: none; border: 0; box-shadow: none; }
+}

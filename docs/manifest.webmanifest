@@ -1,0 +1,10 @@
+{
+  "name": "日本語知識庫",
+  "short_name": "日本語",
+  "description": "日文文法、單字與歌詞學習筆記",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4efe4",
+  "theme_color": "#f4efe4",
+  "lang": "zh-Hant"
+}
